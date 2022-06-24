@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context=".exam.ScreenSlidePageFragment">
+
+    <TextView
+        android:id="@+id/tv_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/brandon2"
+        android:text="Câu hỏi thứ 1"
+        android:textColor="@color/nearBlack"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvAsk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/brandon2"
+        android:text=". Look at this picture, choose the correct answer"
+        android:textColor="@color/nearBlack"
+        android:textSize="16sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_num" />
+
+    <RadioGroup
+        android:id="@+id/radGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAsk">
+
+        <RadioButton
+            android:id="@+id/radA"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:fontFamily="@font/brandon2"
+            android:text="Trả lời 1"
+            android:textColor="@color/nearBlack"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/radB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:fontFamily="@font/brandon2"
+            android:text="Trả lời 2"
+            android:textColor="@color/nearBlack"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/radC"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:fontFamily="@font/brandon2"
+            android:text="Trả lời 3"
+            android:textColor="@color/nearBlack"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/radD"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:fontFamily="@font/brandon2"
+            android:text="Trả lời 4"
+            android:textColor="@color/nearBlack"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </RadioGroup>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/layoutCardView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/nearBlack2"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radGroup">
+
+        <ImageView
+            android:id="@+id/img_exam"
+            android:layout_width="250dp"
+            android:layout_height="140dp"
+            android:layout_gravity="center"
+            android:background="@color/white"
+            android:elevation="5dp"
+            android:src="@color/white"
+            android:translationZ="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

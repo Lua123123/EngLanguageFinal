@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/idExam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:elevation="10dp"
+        android:fontFamily="@font/brandon2"
+        android:text="1"
+        android:textColor="@color/nearBlack"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:elevation="10dp"
+        android:fontFamily="@font/brandon2"
+        android:text=". Look at this picture, choose the correct answer"
+        android:textColor="@color/nearBlack"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toRightOf="@+id/idExam"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/layoutCardView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/nearBlack2"
+        app:cardCornerRadius="75dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+        <ImageView
+            android:id="@+id/img_exam"
+            android:layout_width="250dp"
+            android:layout_height="140dp"
+            android:layout_gravity="center"
+            android:background="@color/nearBlack2"
+            android:elevation="5dp"
+            android:src="@drawable/contracts"
+            android:translationZ="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/lA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutCardView">
+
+        <TextView
+            android:id="@+id/tA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="20dp"
+            android:fontFamily="@font/brandon2"
+            android:text="A"
+            android:textColor="@color/gold"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/circleA"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_cicle"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/tv_A"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:elevation="10dp"
+        android:fontFamily="@font/brandon2"
+        android:text="Contract"
+        android:textColor="@color/nearBlack"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toRightOf="@+id/lA"
+        app:layout_constraintTop_toBottomOf="@id/layoutCardView" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/lB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_A">
+
+        <TextView
+            android:id="@+id/tB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="20dp"
+            android:fontFamily="@font/brandon2"
+            android:text="B"
+            android:textColor="@color/gold"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/circleB"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_cicle"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/tv_B"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="40dp"
+        android:elevation="10dp"
+        android:fontFamily="@font/brandon2"
+        android:text="Contract"
+        android:textColor="@color/nearBlack"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toRightOf="@+id/lB"
+        app:layout_constraintTop_toBottomOf="@id/tv_A" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/lC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_B">
+
+        <TextView
+            android:id="@+id/tC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="20dp"
+            android:fontFamily="@font/brandon2"
+            android:text="C"
+            android:textColor="@color/gold"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/circleC"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_cicle"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/tv_C"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="40dp"
+        android:elevation="10dp"
+        android:fontFamily="@font/brandon2"
+        android:text="Contract"
+        android:textColor="@color/nearBlack"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toRightOf="@+id/lC"
+        app:layout_constraintTop_toBottomOf="@id/tv_B" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/lD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_C">
+
+        <TextView
+            android:id="@+id/tD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="20dp"
+            android:fontFamily="@font/brandon2"
+            android:text="D"
+            android:textColor="@color/gold"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/circleD"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_cicle"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/tv_D"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="40dp"
+        android:elevation="10dp"
+        android:fontFamily="@font/brandon2"
+        android:text="Contract"
+        android:textColor="@color/nearBlack"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toRightOf="@+id/lD"
+        app:layout_constraintTop_toBottomOf="@id/tv_C" />
+</androidx.constraintlayout.widget.ConstraintLayout>
