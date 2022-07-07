@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="300dp"
+    android:layout_height="195dp">
+    <ImageView
+        android:id="@+id/layout"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/layout2"
+        android:background="@drawable/bg_dialog_wrong_1" />
+
+    <ImageView
+        android:id="@+id/layout2"
+        android:layout_width="20dp"
+        android:layout_height="match_parent"
+        android:alpha="0.7"
+        android:elevation="10dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:background="@drawable/bg_dialog_wrong_2" />
+
+    <TextView
+        android:id="@+id/txtWrongScore"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/brandon2"
+        android:text="WRONG ANSWER"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:elevation="10dp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtWrong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textColor="@color/gold"
+        android:textSize="43sp"
+        android:fontFamily="@font/brandon2"
+        android:elevation="10dp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtWrongScore"
+        android:text="100"/>
+
+    <Button
+        android:id="@+id/btn_wrongDialog"
+        android:layout_width="120dp"
+        android:layout_height="70dp"
+        android:backgroundTint="@color/white"
+        android:text="OK"
+        android:elevation="10dp"
+        android:fontFamily="@font/brandon2"
+        android:textColor="@color/nearBlack"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtWrong" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

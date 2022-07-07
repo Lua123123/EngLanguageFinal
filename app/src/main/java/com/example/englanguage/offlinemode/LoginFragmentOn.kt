@@ -1,25 +1,24 @@
 package com.example.englanguage.offlinemode
 
 import android.content.Context
-import android.content.Intent
 import android.content.SharedPreferences
 import android.net.ConnectivityManager
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.findNavController
 import com.example.englanguage.R
 import com.example.englanguage.SignUpActivity
 import com.example.englanguage.databinding.FragmentLoginOnBinding
+import com.example.englanguage.extensions.launchActivity
+import com.example.englanguage.extensions.toast
 import com.example.englanguage.viewmodel.LoginFragmentViewModel
 
 class LoginFragmentOn : Fragment() {
@@ -58,10 +57,9 @@ class LoginFragmentOn : Fragment() {
         val editor: SharedPreferences.Editor? = sharedPref?.edit()
 
         tv_dontHaveAnAccount = view.findViewById<TextView>(R.id.tv_dontHaveAnAccount)
-        tv_dontHaveAnAccount?.setOnClickListener(View.OnClickListener {
-            val intentLogin = Intent(context, SignUpActivity::class.java)
-            startActivity(intentLogin)
-        })
+        tv_dontHaveAnAccount?.setOnClickListener {
+            context?.launchActivity(SignUpActivity::class.java)
+        }
 
         binding.btnGetLogin.setOnClickListener(View.OnClickListener {
             email = binding.edtEmail.text.toString().trim()
@@ -75,35 +73,19 @@ class LoginFragmentOn : Fragment() {
                 if (email != null && password != null && !email?.isEmpty()!! && !password?.isEmpty()!!) {
                     if (haveNetwork()) {
                         loginViewModel.mClickLogin()
-                    } else if (!haveNetwork()) {
-                        val toast =
-                            Toast.makeText(
-                                context,
-                                "Please connect to internet or switch to offline mode!",
-                                Toast.LENGTH_LONG
-                            )
-                        loginViewModel.customToast(toast)
+                    }
+                    if (!haveNetwork()) {
+                        context?.toast("Please connect to internet or switch to offline mode!")
                     }
                 } else {
-                    val toast =
-                        Toast.makeText(
-                            context,
-                            "EMAIL OR PASSWORD IS EMPTY",
-                            Toast.LENGTH_SHORT
-                        )
-                    loginViewModel.customToast(toast)
+                    context?.toast("EMAIL OR PASSWORD IS EMPTY")
                 }
             } else {
-                val toast = Toast.makeText(
-                    context,
-                    "Please agree to the terms of the app!",
-                    Toast.LENGTH_LONG
-                )
-                loginViewModel.customToast(toast)
+                context?.toast("Please agree to the terms of the app!")
             }
 
             //SHARED PREFERENCE
-            if (!binding.checkRememberMe.isChecked()) {
+            if (!binding.checkRememberMe.isChecked) {
                 editor?.remove("email")
                 editor?.remove("password")
                 editor?.apply()
@@ -111,6 +93,8 @@ class LoginFragmentOn : Fragment() {
 
         })
 
+        binding.checkRememberMe.isChecked = true
+        binding.checkBoxLogin.isChecked = true
         //SHARED PREFERENCE
         binding.edtEmail.setText(sharedPref?.getString("email", ""))
         binding.edtPassword.setText(sharedPref?.getString("password", ""))
@@ -118,20 +102,20 @@ class LoginFragmentOn : Fragment() {
     }
 
     private fun haveNetwork(): Boolean {
-        var have_WIFI = false
-        var have_MobileData = false
+        var haveWIFI = false
+        var haveMobileData = false
         val connectivityManager =
             context?.getSystemService(AppCompatActivity.CONNECTIVITY_SERVICE) as ConnectivityManager
-        val networkInfos = connectivityManager.allNetworkInfo
-        for (info in networkInfos) {
-            if (info.typeName.equals("WIFI", ignoreCase = true)) if (info.isConnected) have_WIFI =
+        val networkInfo = connectivityManager.allNetworkInfo
+        for (info in networkInfo) {
+            if (info.typeName.equals("WIFI", ignoreCase = true)) if (info.isConnected) haveWIFI =
                 true
             if (info.typeName.equals(
                     "MOBILE",
                     ignoreCase = true
                 )
-            ) if (info.isConnected) have_MobileData = true
+            ) if (info.isConnected) haveMobileData = true
         }
-        return have_WIFI || have_MobileData
+        return haveWIFI || haveMobileData
     }
 }

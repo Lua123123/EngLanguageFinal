@@ -2,26 +2,29 @@ package com.example.englanguage
 
 import android.app.Dialog
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.view.Gravity
-import android.view.View
 import android.view.Window
 import android.view.WindowManager
 import android.widget.Button
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.RelativeLayout
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.englanguage.databinding.ActivityMainBinding
-import com.example.englanguage.exam.ExamPagerActivity
+import com.example.englanguage.exam.StartQuizActivity
+import com.example.englanguage.extensions.launchActivity
+import com.example.englanguage.extensions.toast
 
 class MainActivity : AppCompatActivity() {
-    private var doubleBackToExitPressedOnce = false
+    private var backPressedTime: Long = 0
     private lateinit var Authorization: String
     private lateinit var binding: ActivityMainBinding
     //SHARED PREFERENCE
@@ -37,39 +40,34 @@ class MainActivity : AppCompatActivity() {
         sharedPref = this.getSharedPreferences("dataAuth", Context.MODE_PRIVATE)
         Authorization = sharedPref.getString("Authorization", "").toString()
 
-        binding.topic.setOnClickListener(View.OnClickListener {
-            val intent1 = Intent(this@MainActivity, TopicActivity::class.java)
-            startActivity(intent1)
-        })
 
-        binding.vocabulary.setOnClickListener(View.OnClickListener {
-            val intent2 = Intent(this@MainActivity, VocabularyActivity::class.java)
-            startActivity(intent2)
-        })
+        binding.topic.setOnClickListener {
+            launchActivity(TopicActivity::class.java)
+        }
 
-        binding.speak.setOnClickListener(View.OnClickListener {
-            val intent3 = Intent(this@MainActivity, TextToSpeechActivity::class.java)
-            startActivity(intent3)
-        })
+        binding.vocabulary.setOnClickListener {
+            launchActivity(VocabularyActivity::class.java)
+        }
 
-        binding.logout.setOnClickListener(View.OnClickListener {
+        binding.speak.setOnClickListener {
+            launchActivity(TextToSpeechActivity::class.java)
+        }
+
+        binding.logout.setOnClickListener {
             openDialogInsertVocabulary(Gravity.CENTER)
-        })
+        }
 
-        binding.flipcard.setOnClickListener(View.OnClickListener {
-            val intent4 = Intent(this@MainActivity, FlipCardActivity::class.java)
-            startActivity(intent4)
-        })
+        binding.flipcard.setOnClickListener {
+            launchActivity(FlipCardActivity::class.java)
+        }
 
-        binding.videoExo.setOnClickListener(View.OnClickListener {
-            val intent5 = Intent(this@MainActivity, ExoMenuActivity::class.java)
-            startActivity(intent5)
-        })
+        binding.videoExo.setOnClickListener {
+            launchActivity(ExoMenuActivity::class.java)
+        }
 
-        binding.test.setOnClickListener(View.OnClickListener {
-            val intent6 = Intent(this@MainActivity, ExamPagerActivity::class.java)
-            startActivity(intent6)
-        })
+        binding.test.setOnClickListener{
+            launchActivity(StartQuizActivity::class.java)
+        }
     }
 
     private fun openDialogInsertVocabulary(gravity: Int) {
@@ -94,37 +92,26 @@ class MainActivity : AppCompatActivity() {
         val btnConfirm = dialog.findViewById<Button>(R.id.btnConFirmDialog)
         btnCancel.setOnClickListener { dialog.dismiss() }
         btnConfirm.setOnClickListener {
-            val intent4 = Intent(this@MainActivity, LoginActivity::class.java)
-            startActivity(intent4)
+            launchActivity(LoginActivity::class.java)
             dialog.dismiss()
         }
         dialog.show()
     }
 
-    private fun customToast(toast: Toast) {
-        val toastView = toast.view
-        val toastMessage = toastView!!.findViewById<View>(android.R.id.message) as TextView
-        toastMessage.textSize = 13f
-        toastMessage.setTextColor(Color.YELLOW)
-        toastMessage.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0)
-        toastMessage.gravity = Gravity.CENTER
-        toastMessage.compoundDrawablePadding = 4
-        toastView.setBackgroundColor(Color.BLACK)
-        toastView.setBackgroundResource(R.drawable.bg_toast)
-        toast.show()
-    }
-
     override fun onBackPressed() {
-        if (doubleBackToExitPressedOnce) {
-            val intent5 = Intent(this@MainActivity, LoginActivity::class.java)
-            startActivity(intent5)
-            super.onBackPressed()
+        if (backPressedTime + 2000 > System.currentTimeMillis()) {
+            AlertDialog.Builder(this)
+                .setTitle("Do you want to exit?")
+                .setNegativeButton("Cancel", null)
+                .setPositiveButton(
+                    "Confirm",
+                    DialogInterface.OnClickListener { dialogInterface, i ->
+                        setResult(RESULT_OK, Intent().putExtra("Exit", true))
+                        finish()
+                    }).create().show()
+        } else {
+            toast("Press again to exit!")
         }
-        this.doubleBackToExitPressedOnce = true
-        val toast: Toast = Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT)
-        customToast(toast)
-        Handler().postDelayed(Runnable {
-            doubleBackToExitPressedOnce = false
-        }, 2000)
+        backPressedTime = System.currentTimeMillis()
     }
 }

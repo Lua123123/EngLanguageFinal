@@ -6,9 +6,9 @@ import com.example.englanguage.model.vocabulary.SuccessVocabulary
 import androidx.lifecycle.ViewModel
 import com.example.englanguage.network.API
 import com.example.englanguage.model.vocabulary.Vocabulary
-import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import com.example.englanguage.database.VocabularyDatabase
+import com.example.englanguage.extensions.toast
 import kotlinx.coroutines.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -73,8 +73,7 @@ class VocabularyOfTopicViewModel(
             }
 
             override fun onFailure(call: Call<Vocabulary?>, t: Throwable) {
-                Toast.makeText(context, "LOAD DATA VOCABULARY OF TOPIC FAILED", Toast.LENGTH_SHORT)
-                    .show()
+                context.toast("LOAD DATA VOCABULARY OF TOPIC FAILED")
             }
         })
     }

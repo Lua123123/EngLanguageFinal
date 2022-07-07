@@ -4,6 +4,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:name=".koin.MyApplication"
@@ -15,10 +17,13 @@
         android:theme="@style/Theme.EngLanguage"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".exam.ScreenSlideActivity"
+            android:name=".exam.ResultActivity"
             android:exported="false" />
         <activity
-            android:name=".exam.ExamPagerActivity"
+            android:name=".exam.QuizActivity"
+            android:exported="false" />
+        <activity
+            android:name=".exam.StartQuizActivity"
             android:exported="false" />
         <activity
             android:name=".SubmitActivity"
@@ -29,6 +34,7 @@
             android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -64,7 +70,7 @@
             android:name=".VocabularyOfTopicActivity"
             android:exported="false" />
         <activity
-            android:name="VocabularyActivity"
+            android:name=".VocabularyActivity"
             android:exported="false" />
         <activity
             android:name=".TopicActivity"

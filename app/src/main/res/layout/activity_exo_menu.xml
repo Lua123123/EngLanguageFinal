@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/goldPart3"
+        android:background="@color/nearBlack"
         android:padding="10dp"
         tools:context=".ExoMenuActivity">
 
@@ -29,7 +29,7 @@
                 android:fontFamily="@font/brandon2"
                 android:gravity="center"
                 android:text="TOPIC's VIDEO"
-                android:textColor="@color/nearBlack"
+                android:textColor="@color/gold"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -44,8 +44,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="50dp"
-            android:background="@drawable/bg_rcv"
-            android:padding="10dp"
+            android:background="@color/nearBlack"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"

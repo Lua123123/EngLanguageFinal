@@ -1,7 +1,6 @@
 package com.example.englanguage
 
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -10,6 +9,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.englanguage.adapter.ListTopicAdapter
 import com.example.englanguage.databinding.ActivityTopicBinding
+import com.example.englanguage.extensions.launchActivity
 import com.example.englanguage.model.topic.Success
 import com.example.englanguage.viewmodel.TopicViewModel
 
@@ -29,23 +29,21 @@ class TopicActivity : AppCompatActivity() {
         binding.recyclerView.apply {
             val itemDecoration = DividerItemDecoration(applicationContext, LinearLayoutManager.VERTICAL)
             itemDecoration.setDrawable(ContextCompat.getDrawable(applicationContext, R.drawable.divider_rcv)!!)
-            this.addItemDecoration(itemDecoration)
-            this.layoutManager = LinearLayoutManager(applicationContext)
+            addItemDecoration(itemDecoration)
+            layoutManager = LinearLayoutManager(applicationContext)
         }
         adapter = ListTopicAdapter(postsList, context)
         binding.recyclerView.adapter = adapter
 
         binding.imgBack.setOnClickListener {
-            val intentMainActivity = Intent(applicationContext, MainActivity::class.java)
-            startActivity(intentMainActivity)
+            launchActivity(MainActivity::class.java)
         }
 
         topicViewModel.mClickGetTopic(postsList, adapter)
     }
 
     override fun onBackPressed() {
-        val intent5 = Intent(this@TopicActivity, MainActivity::class.java)
-        startActivity(intent5)
+        launchActivity(MainActivity::class.java)
         super.onBackPressed()
     }
 }

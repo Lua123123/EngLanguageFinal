@@ -11,7 +11,6 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.englanguage.R
 import com.google.android.exoplayer2.MediaItem
-import kotlin.math.log
 
 class ChildFragment : Fragment() {
     private lateinit var textView: TextView
@@ -58,6 +57,15 @@ class ChildFragment : Fragment() {
 
     override fun onDestroy() {
         super.onDestroy()
+        if (simpleExoPlayer != null) {
+            simpleExoPlayer.playWhenReady = false;
+            simpleExoPlayer.stop();
+            simpleExoPlayer.seekTo(0);
+        }
+    }
+
+    override fun onStop() {
+        super.onStop()
         if (simpleExoPlayer != null) {
             simpleExoPlayer.playWhenReady = false;
             simpleExoPlayer.stop();

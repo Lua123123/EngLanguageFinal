@@ -6,15 +6,16 @@ import androidx.lifecycle.MutableLiveData
 import com.example.englanguage.model.login.UserLogin
 import com.example.englanguage.network.API
 import com.example.englanguage.model.login.Login
-import android.widget.Toast
-import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Color
 import com.example.englanguage.MainActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.TextView
 import android.view.Gravity
 import com.example.englanguage.R
+import com.example.englanguage.extensions.launchActivity
+import com.example.englanguage.extensions.toast
 import kotlinx.coroutines.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -62,44 +63,22 @@ class LoginFragmentViewModel(
                 val login = response.body()!!
                 val status = login.status.toString()
                 if (status == "true") {
-                    val toast = Toast.makeText(context, "LOGIN SUCCESSFULLY", Toast.LENGTH_SHORT)
-                    customToast(toast)
-                    val intent = Intent(context, MainActivity::class.java)
-                    val bundle = Bundle()
                     val tokenType = login.data.token_type.trim { it <= ' ' }
                     val accessToken = login.data.access_token.trim { it <= ' ' }
                     val Authorization = "$tokenType $accessToken"
-                    bundle.putString("Authorization", Authorization)
-
                     //SHARED PREFERENCE
                     editor?.putString("Authorization", Authorization)
                     editor?.apply()
-
-                    intent.putExtras(bundle)
-                    context.startActivity(intent)
+                    context.launchActivity(MainActivity::class.java)
+                    context.toast("LOGIN SUCCESSFULLY")
                 } else {
-                    val toast = Toast.makeText(context, "EMAIL OR PASSWORD INVALID!", Toast.LENGTH_SHORT)
-                    customToast(toast)
+                    context.toast("EMAIL OR PASSWORD INVALID!")
                 }
             }
 
             override fun onFailure(call: Call<Login?>, t: Throwable) {
-                val toast = Toast.makeText(context, "LOGIN FAILED!", Toast.LENGTH_SHORT)
-                customToast(toast)
+                context.toast("LOGIN FAILED!")
             }
         })
-    }
-
-    fun customToast(toast: Toast) {
-        val toastView = toast.view
-        val toastMessage = toastView!!.findViewById<TextView>(android.R.id.message)
-        toastMessage.textSize = 13f
-        toastMessage.setTextColor(Color.YELLOW)
-        toastMessage.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0)
-        toastMessage.gravity = Gravity.CENTER
-        toastMessage.compoundDrawablePadding = 4
-        toastView.setBackgroundColor(Color.BLACK)
-        toastView.setBackgroundResource(R.drawable.bg_toast)
-        toast.show()
     }
 }

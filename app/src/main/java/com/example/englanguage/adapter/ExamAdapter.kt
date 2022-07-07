@@ -5,22 +5,13 @@ import android.view.LayoutInflater
 import com.example.englanguage.R
 import android.annotation.SuppressLint
 import android.content.Context
-import android.content.Intent
-import android.opengl.Visibility
-import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
-import androidx.cardview.widget.CardView
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.englanguage.ExoActivity
-import com.example.englanguage.MainActivity
-import com.example.englanguage.SubmitActivity
+import com.example.englanguage.extensions.toast
 
 class ExamAdapter(
     private val listImage: List<String>,
@@ -135,7 +126,7 @@ class ExamAdapter(
             }
         }
         btn_submit.setOnClickListener {
-            Toast.makeText(context, listSubmit.toString(), Toast.LENGTH_SHORT).show()
+            context.toast(listSubmit.toString())
         }
     }
 

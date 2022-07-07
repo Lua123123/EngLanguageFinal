@@ -9,4 +9,8 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
         supportActionBar?.hide()
     }
+
+    override fun onStop() {
+        super.onStop()
+    }
 }

@@ -16,15 +16,15 @@ import com.example.englanguage.database.VocabularyDatabase
 import com.example.englanguage.model.topic.Success
 
 class TopicFragment : Fragment() {
-    private var layoutManager: LinearLayoutManager? = null
-    private var adapter: ListTopicAdapterOffline? = null
-    private var postsList: MutableList<Success> = ArrayList()
+    private lateinit var layoutManager: LinearLayoutManager
+    private lateinit var adapter: ListTopicAdapterOffline
     private lateinit var binding: FragmentTopicBinding
+    private var postsList: MutableList<Success> = ArrayList()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_topic, container, false)
         binding.lifecycleOwner = this
         val view = binding.root
@@ -38,15 +38,15 @@ class TopicFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         adapter = ListTopicAdapterOffline(postsList, context!!, "")
         layoutManager = LinearLayoutManager(context)
-        binding.recyclerViewOffline.setLayoutManager(layoutManager)
+        binding.recyclerViewOffline.layoutManager = layoutManager
 
         val itemDecoration = DividerItemDecoration(context, LinearLayoutManager.VERTICAL)
         itemDecoration.setDrawable(this.resources.getDrawable(R.drawable.divider_rcv))
         binding.recyclerViewOffline.addItemDecoration(itemDecoration)
 
         postsList = VocabularyDatabase.getInstance(context!!)?.topicDAO()?.getListTopic() as MutableList<Success>
-        adapter?.setData(postsList)
-        binding.recyclerViewOffline.setAdapter(adapter)
+        adapter.setData(postsList)
+        binding.recyclerViewOffline.adapter = adapter
 
     }
 }

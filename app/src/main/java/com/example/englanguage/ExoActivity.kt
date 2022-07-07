@@ -3,6 +3,7 @@ package com.example.englanguage
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import com.example.englanguage.exoviewpager.VerticalViewPager
 import com.example.englanguage.exoviewpager.ViewPagerAdapter

@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.englanguage.adapter.ExoMenuAdapter
 import com.example.englanguage.databinding.ActivityExoMenuBinding
+import com.example.englanguage.utils.GridItemDecoration
 
 class ExoMenuActivity : AppCompatActivity() {
     private lateinit var binding: ActivityExoMenuBinding
@@ -62,19 +63,11 @@ class ExoMenuActivity : AppCompatActivity() {
         listImageTopic.add(R.drawable.apply_and_interviewing)
 
         binding.recyclerView.apply {
-            val itemDecoration = DividerItemDecoration(applicationContext, LinearLayoutManager.VERTICAL)
-            itemDecoration.setDrawable(ContextCompat.getDrawable(applicationContext, R.drawable.divider_rcv)!!)
-            this.addItemDecoration(itemDecoration)
+            addItemDecoration(GridItemDecoration(spanCount = 2, spacing = 16, includeEdge = false))
             this.layoutManager = GridLayoutManager(applicationContext, 2, GridLayoutManager.VERTICAL, false)
         }
         adapter = ExoMenuAdapter(listNameTopic, listImageTopic, context)
         binding.recyclerView.adapter = adapter
 
-    }
-
-    override fun onBackPressed() {
-        super.onBackPressed()
-        val intent = Intent(this@ExoMenuActivity, MainActivity::class.java)
-        startActivity(intent)
     }
 }

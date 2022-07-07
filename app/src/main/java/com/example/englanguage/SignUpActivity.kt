@@ -1,12 +1,12 @@
 package com.example.englanguage
 
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
-import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.englanguage.databinding.ActivitySignUpBinding
+import com.example.englanguage.extensions.launchActivity
+import com.example.englanguage.extensions.toast
 import com.example.englanguage.viewmodel.SignUpViewModel
 
 class SignUpActivity : AppCompatActivity() {
@@ -24,8 +24,7 @@ class SignUpActivity : AppCompatActivity() {
         supportActionBar?.hide()
         signUpViewModel = SignUpViewModel(context)
         binding.tvHaveAnAccount.setOnClickListener {
-            val intentLogin = Intent(applicationContext, LoginActivity::class.java)
-            startActivity(intentLogin)
+            launchActivity(LoginActivity::class.java)
         }
         binding.btnPostSignUp.setOnClickListener {
             email = binding.edtEmail.text.toString().trim { it <= ' ' }
@@ -37,20 +36,10 @@ class SignUpActivity : AppCompatActivity() {
                 ) {
                     signUpViewModel?.clickSignUp(email, password, name, conformPassword)
                 } else {
-                    val toast = Toast.makeText(
-                        context,
-                        "NAME, EMAIL, PASSWORD OR CONFORM PASSWORD IS EMPTY!",
-                        Toast.LENGTH_SHORT
-                    )
-                    signUpViewModel?.customToast(toast)
+                    context.toast("NAME, EMAIL, PASSWORD OR CONFORM PASSWORD IS EMPTY!")
                 }
             } else {
-                val toast = Toast.makeText(
-                    context,
-                    "Please agree to the terms of the app!",
-                    Toast.LENGTH_SHORT
-                )
-                signUpViewModel?.customToast(toast)
+                context.toast("Please agree to the terms of the app!")
             }
         }
     }

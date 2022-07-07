@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:padding="10dp"
+            tools:context=".exam.StartQuizActivity">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnContract"
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+                    android:layout_margin="5dp"
+                    android:backgroundTint="@color/gold"
+                    android:text="Contract"
+                    android:textColor="@color/nearBlack" />
+
+                <Button
+                    android:id="@+id/btnMarketing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+                    android:layout_margin="5dp"
+                    android:backgroundTint="@color/gold"
+                    android:text="Makerting"
+                    android:textColor="@color/nearBlack" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnWarranties"
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+                    android:layout_margin="5dp"
+                    android:backgroundTint="@color/gold"
+                    android:text="Warranties"
+                    android:textColor="@color/nearBlack" />
+
+                <Button
+                    android:id="@+id/btnBusiness"
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+                    android:layout_margin="5dp"
+                    android:backgroundTint="@color/gold"
+                    android:text="Business planning"
+                    android:textColor="@color/nearBlack" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnConferences"
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+                    android:layout_margin="5dp"
+                    android:backgroundTint="@color/gold"
+                    android:text="Conferences"
+                    android:textColor="@color/nearBlack" />
+
+                <Button
+                    android:id="@+id/btnComputers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+                    android:layout_margin="5dp"
+                    android:backgroundTint="@color/gold"
+                    android:text="Computers"
+                    android:textColor="@color/nearBlack" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnOfficeTech"
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+                    android:layout_margin="5dp"
+                    android:backgroundTint="@color/gold"
+                    android:text="Office Technology"
+                    android:textColor="@color/nearBlack" />
+
+                <Button
+                    android:id="@+id/btnOfficeProducts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+                    android:layout_margin="5dp"
+                    android:backgroundTint="@color/gold"
+                    android:text="Office Procedures"
+                    android:textColor="@color/nearBlack" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnElectronics"
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+                    android:layout_margin="5dp"
+                    android:backgroundTint="@color/gold"
+                    android:text="Electronics"
+                    android:textColor="@color/nearBlack" />
+
+                <Button
+                    android:id="@+id/btnCorres"
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+                    android:layout_margin="5dp"
+                    android:backgroundTint="@color/gold"
+                    android:text="Correspondence"
+                    android:textColor="@color/nearBlack" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnJob"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:backgroundTint="@color/gold"
+                android:text="Job Advertising and Recruiting"
+                android:textColor="@color/nearBlack" />
+
+            <Button
+                android:id="@+id/btnApply"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:backgroundTint="@color/gold"
+                android:text="Applying and Interviewing"
+                android:textColor="@color/nearBlack" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnHiring"
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+                    android:layout_margin="5dp"
+                    android:backgroundTint="@color/gold"
+                    android:text="Hiring and Training"
+                    android:textColor="@color/nearBlack" />
+
+                <Button
+                    android:id="@+id/btnSalary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+                    android:layout_margin="5dp"
+                    android:backgroundTint="@color/gold"
+                    android:text="Salaries and benefits"
+                    android:textColor="@color/nearBlack" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnPromotions"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:backgroundTint="@color/gold"
+                android:text="Promotions, Pensions and Awards"
+                android:textColor="@color/nearBlack" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnShopping"
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:backgroundTint="@color/gold"
+                    android:text="Shopping"
+                    android:textColor="@color/nearBlack" />
+
+                <Button
+                    android:id="@+id/btnOder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+                    android:layout_margin="5dp"
+                    android:backgroundTint="@color/gold"
+                    android:text="Ordering Supplies"
+                    android:textColor="@color/nearBlack" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</layout>

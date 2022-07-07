@@ -280,7 +280,7 @@
                 app:cardElevation="8dp">
 
                 <RelativeLayout
-                    android:id="@+id/videoExo"
+                    android:id="@+id/test"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
                     android:background="@drawable/logoutt"
@@ -292,7 +292,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginLeft="20dp"
                         android:elevation="10dp"
-                        android:src="@drawable/video"
+                        android:src="@drawable/exam"
                         android:translationZ="10dp" />
 
                     <TextView
@@ -301,10 +301,10 @@
                         android:layout_alignParentRight="true"
                         android:fontFamily="@font/brandon2"
                         android:padding="25dp"
-                        android:text="TOPIC's VIDEO"
+                        android:text="EXAM TEST"
                         android:textColor="@color/nearBlack2"
                         android:textColorHint="@color/black"
-                        android:textSize="19sp" />
+                        android:textSize="22sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -313,7 +313,7 @@
                         android:layout_alignParentBottom="true"
                         android:padding="20dp"
                         android:text="EXPAND ALL"
-                        android:textColor="@color/white"
+                        android:textColor="@color/nearBlack"
                         android:textStyle="bold" />
 
                 </RelativeLayout>

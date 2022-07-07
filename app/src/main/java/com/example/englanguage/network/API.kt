@@ -68,7 +68,7 @@ interface API {
     ): Call<DeleteVocabulary?>?
 
     companion object {
-        private const val DOMAIN = "http://192.168.11.92/quanlytuvung/public/api/"
+        private const val DOMAIN = "http://192.168.43.130/quanlytuvung/public/api/"
 //        private const val DOMAIN = "https://2eae-58-187-123-14.ap.ngrok.io/quanlytuvung/public/api/"
         val api: API = Retrofit.Builder()
             .baseUrl(DOMAIN)

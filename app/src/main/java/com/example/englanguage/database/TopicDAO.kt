@@ -1,7 +1,10 @@
 package com.example.englanguage.database
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
+import com.example.englanguage.model.exam.Question
 import com.example.englanguage.model.topic.Success
 import com.example.englanguage.model.vocabulary.SuccessVocabulary
 
@@ -33,4 +36,17 @@ interface VocabularyOfTopicDAO {
 
     @Query("SELECT * FROM vocabulary")
     fun getListVocabularyOfTopic() : List<SuccessVocabulary>
+}
+
+@Dao
+interface QuestionDAO {
+
+    @Insert
+    fun insertQuestion(question: Question)
+
+    @Query("SELECT * FROM question_table")
+    fun getAllQuestions() : LiveData<List<Question>>
+
+    @Query("DELETE FROM question_table")
+    fun deleteAllQuestions()
 }

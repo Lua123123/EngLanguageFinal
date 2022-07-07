@@ -42,21 +42,9 @@ class MainFragment : Fragment() {
             Navigation.findNavController(view)
                 .navigate(R.id.action_mainFragment_to_textToSpeechFragmentOff)
         }
-        view.findViewById<RelativeLayout>(R.id.videoExo).setOnClickListener {
-            if (haveNetwork()) {
-                Navigation.findNavController(view)
-                    .navigate(R.id.action_mainFragment_to_exoMenuActivity)
-            } else {
-                val builder: AlertDialog.Builder = AlertDialog.Builder(context)
-                builder.setMessage("To use this function, please connect to the network.")
-                    .setCancelable(true).setPositiveButton(
-                        "Confirm"
-                    ) { dialog, id ->
-                        dialog.cancel()
-                    }
-                val alert = builder.create()
-                alert.show()
-            }
+        view.findViewById<RelativeLayout>(R.id.test).setOnClickListener {
+            Navigation.findNavController(view)
+                .navigate(R.id.action_mainFragment_to_startQuizActivity)
         }
         return view
     }

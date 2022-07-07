@@ -20,8 +20,8 @@
 
         <ImageView
             android:id="@+id/img_topic"
-            android:layout_width="160dp"
-            android:layout_height="107dp"
+            android:layout_width="170dp"
+            android:layout_height="113dp"
             android:layout_gravity="center"
             android:background="@color/nearBlack2"
             android:src="@drawable/contracts"
@@ -43,7 +43,7 @@
         android:elevation="10dp"
         android:gravity="center"
         android:text="Contract"
-        android:textColor="@color/black"
+        android:textColor="@color/gold"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"

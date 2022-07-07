@@ -2,8 +2,6 @@ package com.example.englanguage.viewmodel
 
 import android.app.Dialog
 import android.content.Context
-import android.content.Intent
-import android.content.Intent.ACTION_DEFAULT
 import android.graphics.Color
 import com.example.englanguage.model.vocabulary.SuccessVocabulary
 import androidx.recyclerview.widget.RecyclerView
@@ -21,12 +19,9 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.englanguage.network.API
 import com.example.englanguage.model.vocabulary.DeleteVocabulary
-import android.widget.Toast
 import android.widget.EditText
-import com.example.englanguage.MainActivity
-import com.example.englanguage.OneVocabularyActivity
-import com.example.englanguage.VocabularyActivity
 import com.example.englanguage.database.VocabularyDatabase
+import com.example.englanguage.extensions.toast
 import com.example.englanguage.model.vocabulary.SuccessInsertVocabulary
 import kotlinx.coroutines.*
 import retrofit2.Call
@@ -34,7 +29,6 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class VocabularyViewModel : ViewModel() {
-    private val mListVocabularyLiveData: MutableLiveData<List<SuccessVocabulary>>? = null
     private var mListVocabulary: MutableList<SuccessVocabulary> = ArrayList()
     private var vocabulary: Vocabulary? = null
     private val errorMessage = MutableLiveData<String>()
@@ -126,9 +120,7 @@ class VocabularyViewModel : ViewModel() {
                 }
 
                 override fun onFailure(call: Call<DeleteVocabulary?>, t: Throwable) {
-                    val toast =
-                        Toast.makeText(context, "DELETE VOCABULARY FAILED!", Toast.LENGTH_SHORT)
-                    customToast(toast)
+                    context.toast("DELETE VOCABULARY FAILED!")
                 }
             })
     }
@@ -202,14 +194,11 @@ class VocabularyViewModel : ViewModel() {
 
                     mListVocabulary.removeAll(mListVocabulary)
                     mClickGetVocabulary(recyclerView, adapter, context, search)
-                    val toast = Toast.makeText(context, "Insert successfully", Toast.LENGTH_SHORT)
-                    customToast(toast)
+                    context.toast("Insert successfully")
                 }
 
                 override fun onFailure(call: Call<SuccessInsertVocabulary?>, t: Throwable) {
-                    val toast =
-                        Toast.makeText(context, "INSERT VOCABULARY FAILED!", Toast.LENGTH_SHORT)
-                    customToast(toast)
+                    context.toast("INSERT VOCABULARY FAILED!")
                 }
             })
     }
@@ -270,24 +259,9 @@ class VocabularyViewModel : ViewModel() {
             }
 
             override fun onFailure(call: Call<Vocabulary?>, t: Throwable) {
-                val toast =
-                    Toast.makeText(context, "SHOW LIST VOCABULARY FAILED", Toast.LENGTH_SHORT)
-                customToast(toast)
+                context.toast("SHOW LIST VOCABULARY FAILED")
             }
         })
         return null
-    }
-
-    private fun customToast(toast: Toast) {
-        val toastView = toast.view
-        val toastMessage = toastView!!.findViewById<TextView>(android.R.id.message)
-        toastMessage.textSize = 13f
-        toastMessage.setTextColor(Color.YELLOW)
-        toastMessage.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0)
-        toastMessage.gravity = Gravity.CENTER
-        toastMessage.compoundDrawablePadding = 4
-        toastView.setBackgroundColor(Color.BLACK)
-        toastView.setBackgroundResource(R.drawable.bg_toast)
-        toast.show()
     }
 }

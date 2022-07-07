@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.englanguage.OneVocabularyActivity
 import com.example.englanguage.R
 import com.example.englanguage.model.vocabulary.SuccessVocabulary
 import com.example.englanguage.offlinemode.OneVocabularyOffActivity
@@ -42,7 +41,7 @@ class ListVocabularyOfTopicAdapterOffline(
         holder.tvWord.text = successVocabulary.word
         holder.tvMean.text = successVocabulary.mean
 
-        holder.layout_item.setOnClickListener {
+        holder.layoutItem.setOnClickListener {
             val intent = Intent(context, OneVocabularyOffActivity::class.java)
             intent.putExtra("word", word)
             intent.putExtra("mean", mean)
@@ -58,12 +57,12 @@ class ListVocabularyOfTopicAdapterOffline(
         RecyclerView.ViewHolder(itemView) {
         val tvWord: TextView
         val tvMean: TextView
-        val layout_item: LinearLayout
+        val layoutItem: LinearLayout
 
         init {
             tvWord = itemView.findViewById(R.id.word)
             tvMean = itemView.findViewById(R.id.mean)
-            layout_item = itemView.findViewById(R.id.layout_item)
+            layoutItem = itemView.findViewById(R.id.layout_item)
         }
     }
 }

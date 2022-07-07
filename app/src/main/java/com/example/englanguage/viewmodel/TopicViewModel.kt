@@ -1,16 +1,11 @@
 package com.example.englanguage.viewmodel
 
 import android.content.Context
-import android.graphics.Color
-import android.view.Gravity
-import android.view.View
-import android.widget.TextView
-import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.englanguage.R
 import com.example.englanguage.adapter.ListTopicAdapter
 import com.example.englanguage.database.VocabularyDatabase
+import com.example.englanguage.extensions.toast
 import com.example.englanguage.model.topic.Success
 import com.example.englanguage.model.topic.Topic
 import com.example.englanguage.network.API
@@ -70,22 +65,8 @@ class TopicViewModel(private val context:Context) : ViewModel() {
             }
 
             override fun onFailure(call: Call<Topic?>, t: Throwable) {
-                val toast = Toast.makeText(context, "SHOW LIST TOPIC FAILED", Toast.LENGTH_SHORT)
-                customToast(toast)
+                context.toast("SHOW LIST TOPIC FAILED")
             }
         })
-    }
-
-    fun customToast(toast: Toast) {
-        val toastView = toast.view
-        val toastMessage = toastView!!.findViewById<View>(android.R.id.message) as TextView
-        toastMessage.textSize = 13f
-        toastMessage.setTextColor(Color.YELLOW)
-        toastMessage.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0)
-        toastMessage.gravity = Gravity.CENTER
-        toastMessage.compoundDrawablePadding = 4
-        toastView.setBackgroundColor(Color.BLACK)
-        toastView.setBackgroundResource(R.drawable.bg_toast)
-        toast.show()
     }
 }
